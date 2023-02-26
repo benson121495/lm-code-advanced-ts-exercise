@@ -4,6 +4,7 @@ import { browsePosts } from "./menu/options/browse_posts/browse_posts";
 import { sendMessage } from "./menu/options/send_message/send_message";
 import { showAllPosts } from "./menu/options/show_all_posts/show_all_posts";
 import { showAllUsers } from "./menu/options/show_all_users/show_all_users";
+import { sendNewUserMessage } from "./menu/options/send_new_user_message/send_new_user_message";
 import { State } from "./states/state";
 import { states } from "./states/states";
 import { clear, print, printNewLine, prompt } from "./ui/console";
@@ -45,8 +46,7 @@ async function main() {
 				break;
 			case "ADD_USER":
 				clear("yes");
-				print("🏗️  This functionality has not been implemented!");
-				await prompt("⌨️ Press [ENTER] to return to the main menu! 🕶️");
+				const newUser = await sendNewUserMessage();
 				state.set(states.MENU);
 				break;
 			case "UNKNOWN":

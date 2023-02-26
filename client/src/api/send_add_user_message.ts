@@ -1,17 +1,17 @@
 import { print, prompt } from "../ui/console";
 import { baseUrl } from "./base_url";
 
-export async function sendMessageToServer(message : string) {
+export async function sendAddUserMessage(id: string, name: string) {
 	try {
-		const result = await fetch(baseUrl + "/api/send/", {
+		const result = await fetch(baseUrl + "/api/users/add/", {
 			headers: {
 				"Content-Type": "application/json",
 			},
 			method: "POST",
-			body: JSON.stringify({ message: message }),
+			body: JSON.stringify({ id:id, name: name }),
 		});
 
-		const json = await result.json();
+        const json = await result.json();
 
 		const { success } = json;
 
