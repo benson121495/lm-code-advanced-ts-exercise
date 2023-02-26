@@ -2,7 +2,6 @@ import * as express from "express";
 import { Express } from "express";
 import { getAllPosts } from "../services/posts_service";
 import { getAllUsers , newUser } from "../services/users_service";
-import { User } from "../types/posts.types";
 
 
 /*
@@ -87,7 +86,7 @@ function addAPIRoutes(app: Express) {
 	console.log(" Adding New User...")
 	apiRouter.post("/users/add/", (req, res) => {
 		const { body } = req;
-		console.log(`👋 Received "${body.name}"`);
+		console.log(`👋 Received "ID = ${body.id} & Name = ${body.name}"`);
 
 		let user = {id: `${body.id}`, name: `${body.name}`, creationDate: new Date()};
 		newUser(user);
